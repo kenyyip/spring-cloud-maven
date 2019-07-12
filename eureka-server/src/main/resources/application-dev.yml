@@ -1,0 +1,27 @@
+# 服务端口
+server:
+  port: 8761
+
+# 注册服务中心名称
+spring:
+  application:
+    name: eureka-service
+  security:
+    user:
+      name: admin
+      password: 123456
+
+# 注册中心配置
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: eureka-service
+    prefer-ip-address: true
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.0

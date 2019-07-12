@@ -1,0 +1,27 @@
+# 服务端口
+server:
+  port: 8080
+
+# 服务名称
+spring:
+  application:
+    name: service-demo
+  security:
+    user:
+      name: admin
+      password: 123456
+
+# 注册中心配置
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: service-demo
+    prefer-ip-address: true
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.0
