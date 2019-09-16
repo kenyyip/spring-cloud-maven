@@ -3,6 +3,8 @@ server:
   port: 8090
 
 spring:
+  profiles:
+    active: dev
   # 服务名称
   application:
     name: config-server
@@ -10,7 +12,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/shuniversity/microservice-config.git
+          uri: https://github.com/kenyyip/spring-cloud-maven.git
+          search-paths: /config-repo
 
 eureka:
   instance:
@@ -22,4 +25,4 @@ eureka:
 
 logging:
   level:
-    root: debug
+    root: info
